@@ -1,0 +1,19 @@
+{
+  "menu":[
+      {
+        "id": 1,
+        "name": "Strona Główna",
+        "link": "/"
+      },
+      {
+        "id": 2,
+        "name": "Trening",
+        "link": "/training"
+      },
+      {
+        "id": 3,
+        "name": "Mapa",
+        "link": "/map"
+      }
+    ]
+}
