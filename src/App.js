@@ -8,6 +8,9 @@ import {
 
 import Home from './components/Home';
 import Navigation from './components/Navigation';
+import Weather from './components/Weather';
+import Workouts from './components/Workouts/Workouts';
+import Map from './components/Map'
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
     <Navigation />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/weather" component={Weather}/>
+        <Route path="/map" component={Map}/>
+        <Route path="/workouts" component={Workouts}/>
       </Switch>
     </>
   </Router>

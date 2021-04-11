@@ -15,7 +15,8 @@ const Navigation = () => {
     console.log(menuItems);
 
     return menuItems ? <>
-    <ul>
+    <ul className="navigation">
+    <li className="logo"><NavLink to="/" activeClassName="active"></NavLink></li>
         {menuItems.map((el) => <li key={el.id}>
             <NavLink to={el.link} activeClassName="active">{el.name}</NavLink>
         </li>

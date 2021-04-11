@@ -7,13 +7,19 @@
       },
       {
         "id": 2,
-        "name": "Trening",
-        "link": "/training"
+        "name": "Pogoda na rower?",
+        "link": "/weather"
       },
       {
         "id": 3,
         "name": "Mapa",
         "link": "/map"
+      },
+      {
+        "id": 3,
+        "name": "Treningi",
+        "link": "/workouts"
       }
+
     ]
 }
