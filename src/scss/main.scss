@@ -33,10 +33,28 @@ body {
   background-color: rgb(233, 230, 230);
   &:focus{
     border-radius: 40px;
-    border: 5px solid yellow;
+    border: 5px solid $hover-light;
     color: rgb(141, 138, 138);
     outline: none;
   }
+}
+
+.btn{
+  font-size: 1.5rem;
+    color: $main-text-color;
+    align-self: center;
+    padding: 4% 20%;
+    background-color: $button-background;
+    border: 1px solid $button-border;
+    border-radius: 20px;
+    border: none;
+    &:hover {
+      // transition: 2.3;
+      opacity: 0.7;
+      transform: scale(1.1);
+      color: $hover-light;
+      font-weight: bold;
+    }
 }
 
 @import './components/home';

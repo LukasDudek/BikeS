@@ -14,7 +14,7 @@ const Home = () => {
           <label>Hasło </label>
           <input className="input-style" type="password"></input>
         </div>
-        <button type="submit">Zaloguj</button>
+        <button className="btn" type="submit">Zaloguj</button>
       </form>
       <h2>Śledź swoje treningi</h2>
     </div>
