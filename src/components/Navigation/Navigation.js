@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {NavLink} from "react-router-dom";
 
+import Clock from '../Clock';
+
 const MENU_URL = "http://localhost:3001/menu"
 
 const Navigation = () => {
@@ -16,11 +18,18 @@ const Navigation = () => {
 
     return menuItems ? <>
     <ul className="navigation">
-    <li className="logo"><NavLink to="/" activeClassName="active"></NavLink></li>
-        {menuItems.map((el) => <li key={el.id}>
+        <div className="first-half-nav">
+          <li className="logo"><NavLink to="/" activeClassName="active"></NavLink></li>
+          {menuItems.map((el) => <li key={el.id}>
             <NavLink to={el.link} activeClassName="active">{el.name}</NavLink>
-        </li>
+          </li>
         )}
+        </div>
+    
+        <div className="second-half-nav">
+          <Clock />
+        </div>
+        
     </ul>
     </> :
     <>
