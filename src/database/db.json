@@ -1,4 +1,10 @@
 {
+  "users": [
+    {
+      "login": "pawel",
+      "password": "AlaMaKota"
+    }
+  ],
   "menu":[
       {
         "id": 1,

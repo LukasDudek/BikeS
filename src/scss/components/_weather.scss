@@ -4,6 +4,7 @@
     margin: 2%;
     padding: 2%;
     align-items: center;
+    justify-content: center;
     input{
         margin-left: 2%;
         
@@ -15,4 +16,87 @@
         border-radius: 40px;
     }
 
+}
+.weather-list-container{
+    // display: flex;
+    justify-content: center;
+    
+}
+
+.list-of-weather{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.weather-box{
+    display: flex;
+    padding: 1%;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2%;
+    align-items: center;
+    justify-content: center;
+    border: thin dotted blue;
+    background-color: rgb(107, 126, 126);
+    width: 40%;
+    h1{
+        margin-bottom: 4%;
+    }
+    
+    .weather-box-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    
+        width: 100%;
+        // border: thin dotted red;
+    }
+}
+.weather-all{
+    display: flex;
+    justify-content: space-around;
+    .tem-div{
+        display: flex;
+        // border: thin dotted red;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+    }
+    
+}
+
+.bicycle-box-icon{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.info-city {
+    background-color: rgb(43, 49, 49);
+    border-radius: 20px;
+    padding: 1%;
+    align-items: center;
+    align-self: center;
+    width: 30%;
+}
+.scale-bike{
+    // border: 3px solid green;
+    padding: 1%;
+    border-radius: 20px;
+    background-color: grey;
+}
+.prelude-weather-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.arrow-scale{
+    display: flex;
+    justify-content: space-around;
+    
 }

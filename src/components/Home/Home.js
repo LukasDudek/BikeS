@@ -4,6 +4,7 @@ const Home = () => {
     
     return<>
     <div className="home">
+      <div>
       <h1>Witaj !</h1>
       <form>
         <div>
@@ -17,6 +18,7 @@ const Home = () => {
         <button className="btn" type="submit">Zaloguj</button>
       </form>
       <h2>Śledź swoje treningi</h2>
+      </div>
     </div>
     
     </>

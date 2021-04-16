@@ -17,11 +17,12 @@ const Navigation = () => {
     console.log(menuItems);
 
     return menuItems ? <>
-    <ul className="navigation">
+		<div>
+		<ul className="navigation">
         <div className="first-half-nav">
           <li className="logo"><NavLink to="/" activeClassName="active"></NavLink></li>
           {menuItems.map((el) => <li key={el.id}>
-            <NavLink to={el.link} activeClassName="active">{el.name}</NavLink>
+            <NavLink className="" to={el.link} activeClassName="active">{el.name}</NavLink>
           </li>
         )}
         </div>
@@ -29,11 +30,13 @@ const Navigation = () => {
         <div className="second-half-nav">
           <Clock />
         </div>
-        
     </ul>
+		</div>
     </> :
     <>
-    <h1> Loading... </h1>
+		<div>
+		<h1> Loading... </h1>
+		</div>
     </>
 }
 

@@ -57,6 +57,37 @@ body {
     }
 }
 
+// grid
+* {
+  box-sizing : border-box;
+}
+
+
+// $columns: 12;
+// $column-base-width: 100% / $columns;
+
+.container {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// @for $i from 1 through $columns {
+// .col-#{$i} {
+//   width: $column-base-width * $i;
+// }
+// }
+
+// [class*='col-'] {
+//   min-height: 1px;
+// }
+
+
 @import './components/home';
 @import './components/navigation';
 @import './components/weather';

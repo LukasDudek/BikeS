@@ -12,11 +12,11 @@ import Weather from './components/Weather';
 import Workouts from './components/Workouts/Workouts';
 import Map from './components/Map'
 
-
+// http://localhost:3005/users?login=pawel&password=AlaMaKota
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
   <Router>
     <>
     <Navigation />

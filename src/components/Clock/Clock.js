@@ -26,7 +26,7 @@ const Clock = () => {
       <ClockTime actualTime={clockState.date} />
       <ClockDate actualDate={clockState.date} />
     </div>
-   
+  
     </>
 }
 
