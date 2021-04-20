@@ -14,7 +14,6 @@ const Navigation = () => {
         .then(data => SetMenuItems(data))
         .catch(err => console.warn(err))
     }, [])
-    console.log(menuItems);
 
     return menuItems ? <>
 		<div>

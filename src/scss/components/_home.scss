@@ -1,27 +1,116 @@
-.home{
-  text-align: center;
-    font-size: 3.2rem;
-    h1{
-        margin: 3%;
-    }
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
-    form{
-        display:flex;
-        flex-direction: column;
-        align-self: center;
-        align-items:center;
-        justify-content: center;
-        label{
+.login-register-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: 93vh;
+  // margin-top: 2%;
+  .home-login{
+    padding: 1%;
+    background-color: rgba($color: #0f1049, $alpha: 1.0);
+    border-radius: 20px;
+    text-align: center;
+      font-size: 2.8rem;
+      h1{
+          margin: 0%  0% 6% 0%;
+      }
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: space-between;
+      form{
+          display:flex;
+          flex-direction: column;
           align-self: center;
+          align-items:center;
+          justify-content: center;
+          label{
+            align-self: center;
+          }
+          input:first-of-type {
+            margin-bottom: 9%;
+          }
+          input{
+            width: 350px;
+            margin: 1% 0%;
+          }
+      }
+      button {
+        margin-top: 5%;
+      }
+      h2{
+          margin: 3%;
+      }
+  }
+  
+  .home-register{
+    font-size: 2.8rem;
+    background-color: rgba($color: #0f1049, $alpha: 1.0);
+    border-radius: 20px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    padding: 1%;
+
+    form{
+      display:flex;
+      flex-direction: column;
+      .reg-container-form{
+        display:flex;
+        justify-content: space-around;
+        width: 700px;
+        margin: 3% 0% 3% 0%;
+        .register-log-pasw{
+          label{
+            font-size: 2rem;
+          }
+          
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          input:first-of-type {
+            margin-bottom: 9%;
+
+          }
         }
+        .register-other{
+          
+          display:flex;
+          flex-direction: column;
+          text-align: start;
+          input, select{
+            font-size: 1.5rem;
+          }
+          label{
+            margin-top: 2%;
+          }
+          .cm-kg{
+            .cm{
+              display: flex;
+              flex-direction: column;
+            }
+            .kg{
+              display: flex;
+              flex-direction: column;
+            }
+            display: flex;
+            input{
+              width: 100px;
+            }
+          }
+        }
+        label{
+          font-size: 1.3rem;
+          text-align: start;
+        }
+
+        input, select, button{
+          margin-bottom: 1%;
+          width:200px;
+        }
+      }
     }
-    button {
-      margin: 8%;
-    }
-    h2{
-        margin: 3%;
-    }
+  }
 }

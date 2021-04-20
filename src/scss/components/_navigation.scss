@@ -3,11 +3,12 @@
     text-decoration: none;
     display: flex;
     justify-content: space-around;
-    margin-top: 1%;
     padding-bottom: 0.2%;
     background-color: rgba(199, 195, 195, 0.693);
+    border-radius: 20px;
     .first-half-nav{
-      width: 80%;
+        // margin-top: 1%;
+    width: 80%;
         display: flex;
         li{
             margin-left: 3%;

@@ -1,8 +1,17 @@
 {
   "users": [
     {
-      "login": "pawel",
-      "password": "AlaMaKota"
+      "login": "Łukasz",
+      "password": "Test123",
+      "id": 123,
+      "age": 25,
+      "height": 170,
+      "weight": 75,
+      "type_of_bike": "szosa",
+      "localisation": "Poznań",
+      "workouts": [],
+      "all_km": 0,
+      "all_time": 0
     }
   ],
   "menu":[
@@ -18,13 +27,13 @@
       },
       {
         "id": 3,
-        "name": "Mapa",
-        "link": "/map"
+        "name": "Treningi",
+        "link": "/addWorkouts"
       },
       {
         "id": 4,
-        "name": "Treningi",
-        "link": "/workouts"
+        "name": "Zaplanowane jazdy",
+        "link": "/planningTrenings"
       }
     ],
 

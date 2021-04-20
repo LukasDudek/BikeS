@@ -43,7 +43,7 @@ body {
   font-size: 1.5rem;
     color: $main-text-color;
     align-self: center;
-    padding: 4% 20%;
+    padding: 2% 8%;
     background-color: $button-background;
     border: 1px solid $button-border;
     border-radius: 20px;
@@ -63,14 +63,19 @@ body {
 }
 
 
-// $columns: 12;
-// $column-base-width: 100% / $columns;
+
 
 .container {
-  width: 100%;
+  width: auto;
+  height: 100vh;
   max-width: 2000px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 1% 15px;
+}
+.container-main{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 // .row {
 //   display: flex;
@@ -91,4 +96,6 @@ body {
 @import './components/home';
 @import './components/navigation';
 @import './components/weather';
-@import './components/clock'
+@import './components/clock';
+@import './components/workouts';
+@import './components/planningTreninings';
