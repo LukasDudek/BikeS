@@ -1,3 +1,38 @@
+.container-workouts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+  .general-info-workouts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
+    .inf-all-workouts{
+      display: flex;
+        flex-direction: column;
+        font-size: 1.7rem;
+        justify-content: space-around;
+        background-color: rgb(9, 150, 79);
+        border-radius: 100px 180% 180% 100px;
+        width: 500px;
+        height: 50px;
+        padding: 2%;
+        margin-top: 2%;
+    }
+    .all-kilometers{
+      margin-top: 2%;
+    }
+    .all-kcl{
+      margin-top: 2%;
+    }
+    .all-workouts-time{
+      margin-top: 2%;
+    }
+  }
+}
+
 .form-add-workouts{
   display: flex;
   flex-direction: column;
@@ -10,88 +45,38 @@
   height: auto;
   padding: 1%;
   margin-top: 2%;
-  
   button{
     padding: 15%;
     font-size: 2.5rem;
     border-radius: 25px;
-
+  }
+  .add-workouts-string{
+    margin: 5% 0% 15% 0%;
   }
   .cont-inputs-add-workouts{
     display: flex;
     align-items: center;
-  }
-  
-  .inputs-add-workouts{
-    display: flex;
-    flex-direction: column;
-    label{
-      margin-top: 4%;
+    .inputs-add-workouts{
+      display: flex;
+      flex-direction: column;
+      label{
+        margin-top: 4%;
+      }
+      input{
+        justify-content: center;
+        width: 70%;
+        height: 30px;
+        border-radius: 10px;
+        margin-top: 2%;
+      }
+      .add-time-of-ride{
+        display: flex;
+      }
     }
-    input{
-      justify-content: center;
-      width: 70%;
-      height: 30px;
-      border-radius: 10px;
-      margin-top: 2%;
-    }
-    
   }
 }
 
-.all-kilometers{
-  margin-top: 2%;
-}
 
-.all-kcl{
-  margin-top: 2%;
-}
 
-.all-workouts-time{
-  margin-top: 2%;
-}
-.container-workouts{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  padding: 0 5%;
-  .general-info-workouts{
-    display: flex;
-    flex-direction: column;
-    // font-size: 1.7rem;
-    justify-content: space-around;
-    height: 200px;
-    // // align-items: center;
-    // border: 5px solid rgb(14, 94, 47);
-    // background-color: rgb(9, 150, 79);
-    // border-radius: 100px;
-    // width: 500px;
-    // height: 150px;
-    // padding: 2%;
-    // margin-top: 2%;
-  }
-}
 
-.inf-all-workouts{
-  display: flex;
-    flex-direction: column;
-    font-size: 1.7rem;
-    justify-content: space-around;
-    // align-items: center;
-    // border: 5px solid rgb(14, 94, 47);
-    background-color: rgb(9, 150, 79);
-    border-radius: 100px 180% 180% 100px;
-    width: 500px;
-    height: 50px;
-    padding: 2%;
-    margin-top: 2%;
-}
 
-.add-time-of-ride{
-  display: flex;
-}
-
-.add-workouts-string{
-  margin: 5% 0% 15% 0%;
-}

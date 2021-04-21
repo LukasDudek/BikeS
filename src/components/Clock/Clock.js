@@ -8,17 +8,17 @@ const Clock = () => {
   });
 
   useEffect(()=>{
-      const intervalID = setInterval(() => {
-          setClockState(()=> {
-              return {
-                  date: new Date()
-              }
-          })
-      }, 60000)
+    const intervalID = setInterval(() => {
+      setClockState(()=> {
+        return {
+          date: new Date()
+        }
+      })
+    }, 60000)
 
-      return () => {
-        clearInterval(intervalID);
-      }
+    return () => {
+      clearInterval(intervalID);
+    }
   },[])
 
   return<>
@@ -26,7 +26,6 @@ const Clock = () => {
       <ClockTime actualTime={clockState.date} />
       <ClockDate actualDate={clockState.date} />
     </div>
-  
     </>
 }
 

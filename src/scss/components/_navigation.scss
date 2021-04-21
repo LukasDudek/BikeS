@@ -1,55 +1,53 @@
 .navigation{
-    color: $main-text-color;
-    text-decoration: none;
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 0.2%;
-    background-color: rgba(199, 195, 195, 0.693);
-    border-radius: 20px;
-    .first-half-nav{
-        // margin-top: 1%;
+  color: $main-text-color;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0.2%;
+  background-color: rgba(199, 195, 195, 0.693);
+  border-radius: 20px;
+  .first-half-nav{
     width: 80%;
-        display: flex;
-        li{
-            margin-left: 3%;
-            a:visited{
-                color: rgb(67, 69, 70);
-                text-decoration: none;
-            }
-            a:link{
-                text-decoration: none;
-                color: rgb(67, 69, 70);
-            }
-            a:focus{
-                text-decoration: none;
-                color: $main-text-color;
-            }
-            &:hover{
-                animation: blur 0.3s ease;
-                @keyframes blur
-                {
-                from { filter: blur(4px); }
-                to { filter: blur(0px); }
-                }
-                transition: 0.3s;
-                transform: scale(1.2);
-            }
-        }
+    display: flex;
+    .logo{
+      width: 46px;
+      height: 30px;
+      background-image: url(./130067.png);
+      background-repeat: no-repeat;
+      background-position: center; 
+      background-size: cover;
+      }
+    li{
+      margin-left: 3%;
+      a:visited{
+        color: rgb(67, 69, 70);
+        text-decoration: none;
+      }
+      a:link{
+        text-decoration: none;
+        color: rgb(67, 69, 70);
+      }
+      a:focus{
+        text-decoration: none;
+        color: $main-text-color;
+      }
+      &:hover{
+        animation: blur 0.3s ease;
+        @keyframes blur
+          {
+          from { filter: blur(4px); }
+          to { filter: blur(0px); }
+          }
+        transition: 0.3s;
+        transform: scale(1.2);
+      }
     }
-    .second-half-nav{
-        display: flex;
-        width: 20%;
-        .clock{
-            align-content: flex-end;
-        }
+  }
+  .second-half-nav{
+    display: flex;
+    width: 20%;
+    .clock{
+      align-content: flex-end;
     }
-    
-}
-.logo{
-    width: 46px;
-    height: 30px;
-    background-image: url(./130067.png);
-    background-repeat: no-repeat;
-    background-position: center; 
-    background-size: cover;
+  }
 }
