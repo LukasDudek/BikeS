@@ -2,43 +2,52 @@
   "users": [
     {
       "login": "Łukasz",
-      "password": "Test123",
-      "id": 123,
-      "age": 25,
-      "height": 170,
-      "weight": 75,
-      "type_of_bike": "szosa",
+      "password": "testowe",
+      "age": "26",
+      "height": "179",
+      "weight": "74",
+      "type_of_bike": "Miejski",
       "localisation": "Poznań",
       "workouts": [],
       "all_km": 0,
-      "all_time": 0
+      "all_time": 0,
+      "id": 1
+    },
+    {
+      "login": "Marek",
+      "password": "marek455",
+      "age": "28",
+      "height": "160",
+      "weight": "75",
+      "type_of_bike": "Górski",
+      "localisation": "Świdiwn",
+      "workouts": [],
+      "all_km": 0,
+      "all_time": 0,
+      "id": 2
     }
   ],
-  "menu":[
-      {
-        "id": 1,
-        "name": "Strona Główna",
-        "link": "/"
-      },
-      {
-        "id": 2,
-        "name": "Pogoda na rower?",
-        "link": "/weather"
-      },
-      {
-        "id": 3,
-        "name": "Treningi",
-        "link": "/addWorkouts"
-      },
-      {
-        "id": 4,
-        "name": "Zaplanowane jazdy",
-        "link": "/planningTrenings"
-      }
-    ],
-
-    "weather":[
-
-    ]
-
+  "menu": [
+    {
+      "id": 1,
+      "name": "Strona Główna",
+      "link": "/"
+    },
+    {
+      "id": 2,
+      "name": "Pogoda na rower?",
+      "link": "/weather"
+    },
+    {
+      "id": 3,
+      "name": "Treningi",
+      "link": "/addWorkouts"
+    },
+    {
+      "id": 4,
+      "name": "Zaplanowane jazdy",
+      "link": "/planningTrenings"
+    }
+  ],
+  "weather": []
 }

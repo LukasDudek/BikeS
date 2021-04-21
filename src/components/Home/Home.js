@@ -1,45 +1,54 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {JSON_SERWER} from '../../api/constatns'
 
-const Home = () => {
+const Home = ({ users, setUsers }) => {
+  const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], all_km: 0, all_time: 0})
+  const [loginValues, setLoginValues] = useState({
+    login: "",
+    password: ""
+  });
 
-  // const sendData = {
-  //   login: "",
-  //   password: "",
-  //   id: users.length + 1,
-  //   age: 0,
-  //   height: 0,
-  //   weight: 0,
-  //   type_of_bike: "",
-  //   localisation: "",
-  //   workouts: [],
-  //   all_km: 0,
-  //   all_time: 0
-  // }
+  console.log(users);
 
-  // fetch(`${API}/users`, {
-  //   method: "POST",
-  //   body: JSON.stringify(sendData),
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   }
-  // })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data);
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
-  
+  const handleLoginSubmmit = (e) => {
+    e.preventDefault();
+    for (let i=0; i < users.length; i++){
+      if (users[i].login == loginValues.login && users[i].password == loginValues.password) {
+        console.log("zalogowano");
+      } else {
+        console.log("zły login lub hasło");
+      }
+    }
     
+  }
+
+  const handleRegisterSubmmit = (e) => {
+    e.preventDefault();
+
+    fetch(`${JSON_SERWER}/users`, {
+    method: "post",
+    body: JSON.stringify(registerDate),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(user => () => setUsers(user))
+    .catch(error => {
+      console.log(error);
+    });
+    console.log(registerDate);
+
+  }
+
     return<>
     <div className='login-register-container'>
       <div className="home-login">
         <div>
         <h1>Logowanie</h1>
-        <form>
-            <input placeholder="Login" className="input-style" type="text"></input>
-            <input  placeholder="Hasło" className="input-style" type="password"></input>
+        <form onSubmit={handleLoginSubmmit}>
+            <input placeholder="Login" className="input-style" type="text" onChange={e => setLoginValues({...loginValues, login: e.target.value })}></input>
+            <input  placeholder="Hasło" className="input-style" type="password" onChange={e => setLoginValues({...loginValues, password: e.target.value })}></input>
           <button className="btn" type="submit">Zaloguj</button>
         </form>
         </div>
@@ -49,41 +58,41 @@ const Home = () => {
         <div>
           <h1>Rejestracja</h1>
         </div>
-        <form>
+        <form onSubmit={handleRegisterSubmmit}>
           <section className="reg-container-form">
-            <div className="register-log-pasw">
+            <div className="register-log-pasw"> 
               <div>
-                <label>Login </label>
-                <input placeholder="Login" className="input-style" type="text"></input>
+                <label htmlFor="nameRegister">Login </label>
+                <input id="nameRegister" placeholder="Login" className="input-style" type="text" onChange={e => setRegisterDate({...registerDate, login: e.target.value })}></input>
               </div>
               <div>
-                <label>Hasło </label>
-                <input placeholder="Hasło" className="input-style" type="password"></input>
+                <label htmlFor="passRegister" >Hasło </label>
+                <input id="passRegiter" placeholder="Hasło" className="input-style" type="password" onChange={e => setRegisterDate({...registerDate, password: e.target.value })}></input>
               </div>
             </div>
 
             <div className="register-other">
               
-                <label>Wiek </label>
-                <input placeholder="lat" className="input-style" type="number"></input>
+                <label htmlFor="ageRegister">Wiek </label>
+                <input id="ageRegister" placeholder="lat" className="input-style" type="number" onChange={e => setRegisterDate({...registerDate, age: e.target.value })}></input>
                 <div className="cm-kg">
-                  <div class="cm">
-                    <label>Wzrost </label>
-                    <input placeholder="cm" className="input-style" type="number"></input>
+                  <div className="cm">
+                    <label htmlFor="heightRegister">Wzrost </label>
+                    <input id="heightRegister" placeholder="cm" className="input-style" type="number" onChange={e => setRegisterDate({...registerDate, height: e.target.value })}></input>
                   </div>
-                  <div class="kg">
-                    <label>Waga </label>
-                    <input placeholder="kg" className="input-style" type="number"></input>
+                  <div className="kg">
+                    <label htmlFor="weightRegister" >Waga </label>
+                    <input id="weightRegister" placeholder="kg" className="input-style" type="number" onChange={e => setRegisterDate({...registerDate, weight: e.target.value })}></input>
                   </div>
                 </div>
-                <label>Typ roweru </label>
-                <select className="input-style" type="text">
+                <label htmlFor="typeOfBikeRegister">Typ roweru </label>
+                <select id="typeOfBikeRegister" className="input-style" type="text" onChange={e => setRegisterDate({...registerDate, type_of_bike: e.target.value })}>
                   <option>Szosowy</option>
                   <option>Górski</option>
                   <option>Miejski</option>
-                  <option>Gravelowy</option>
-                  <option>Trekkingowy</option>
-                  <option>Crossowy</option>
+                  <option>Gravel</option>
+                  <option>Trekking</option>
+                  <option>Cross</option>
                   <option>Fitness</option>
                   <option>Elektryczny/E-bike</option>
                   <option>Fatbike</option>
@@ -97,8 +106,8 @@ const Home = () => {
                   <option>Rower poziomy</option>
                   <option>Ostre koło/Wolne koło</option>
                 </select>
-                <label>lokalizacja </label>
-                <input placeholder="miasto" className="input-style" type="text"></input>
+                <label htmlFor="localisationRegister">lokalizacja </label>
+                <input id="localisationRegister" placeholder="miasto" className="input-style" type="text" onChange={e => setRegisterDate({...registerDate, localisation: e.target.value })}></input>
             
             </div>
           </section>
