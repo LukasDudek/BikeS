@@ -1,25 +1,28 @@
 import React, {useState} from 'react';
 import {JSON_SERWER} from '../../api/constatns'
 
-const Home = ({ users, setUsers }) => {
+const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLoggedUser }) => {
   const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], all_km: 0, all_time: 0})
   const [loginValues, setLoginValues] = useState({
     login: "",
     password: ""
   });
+  
 
   console.log(users);
 
   const handleLoginSubmmit = (e) => {
     e.preventDefault();
-    for (let i=0; i < users.length; i++){
+    for (let i = 0; i < users.length; i++){
       if (users[i].login == loginValues.login && users[i].password == loginValues.password) {
         console.log("zalogowano");
+        setLoginStatus(true);
+        setLoggedUser(users[i]);
       } else {
         console.log("zły login lub hasło");
       }
     }
-    
+    console.log(loggedUser);
   }
 
   const handleRegisterSubmmit = (e) => {

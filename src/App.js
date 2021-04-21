@@ -17,6 +17,8 @@ import {JSON_SERWER} from './api/constatns';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [loggedUser, setLoggedUser] = useState();
 
   useEffect(()=> {
     fetch(`${JSON_SERWER}/users`)
@@ -35,7 +37,7 @@ function App() {
     <div></div>
     <Navigation />
       <Switch>
-        <Route exact path="/" component={Home} users={users} setUsers={setUsers} />
+        <Route exact path="/" component={Home} loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} />
         <Route path="/weather" component={Weather}/>
         <Route path="/addWorkouts" component={Workouts}/>
         <Route path="/planningTrenings" component={PlanningTrenings}/>
