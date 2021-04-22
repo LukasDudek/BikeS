@@ -7,23 +7,40 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
     login: "",
     password: ""
   });
+  const [loginErr, setLoginErr] = useState("")
   
 
-  console.log(users);
+  // console.log(users);
 
   const handleLoginSubmmit = (e) => {
     e.preventDefault();
+    // for (let i = 0; i < users.length; i++){
+    //   if (users[i].login == loginValues.login && users[i].password == loginValues.password) {
+    //     console.log("zalogowano");
+    //     setLoginStatus(true);
+    //     setLoggedUser(users[i]);
+    //     setLoginErr("");
+    //     break;
+    //   } else {
+    //     setLoginErr("Zły login lub hasło");
+    //   }
+    // }
     for (let i = 0; i < users.length; i++){
-      if (users[i].login == loginValues.login && users[i].password == loginValues.password) {
-        console.log("zalogowano");
-        setLoginStatus(true);
-        setLoggedUser(users[i]);
+      if (users[i].login !== loginValues.login) {
+        setLoginErr("Zły login");
       } else {
-        console.log("zły login lub hasło");
+        if (users[i].password !== loginValues.password) {
+          setLoginErr("Złe hasło");
+        } else {
+          console.log("zalogowano");
+          setLoginStatus(true);
+          setLoggedUser(users[i]);
+          setLoginErr("");
+        }
       }
     }
-    console.log(loggedUser);
   }
+  console.log(loginErr);
 
   const handleRegisterSubmmit = (e) => {
     e.preventDefault();

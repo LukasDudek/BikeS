@@ -25,6 +25,19 @@
       "all_km": 0,
       "all_time": 0,
       "id": 2
+    },
+    {
+      "login": "Adrianna",
+      "password": "test",
+      "age": "22",
+      "height": "170",
+      "weight": "50",
+      "type_of_bike": "Miejski",
+      "localisation": "Poznań",
+      "workouts": [],
+      "all_km": 0,
+      "all_time": 0,
+      "id": 3
     }
   ],
   "menu": [
