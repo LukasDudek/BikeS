@@ -7,30 +7,27 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
     login: "",
     password: ""
   });
-  const [loginErr, setLoginErr] = useState("")
-  
+  const [loginErr, setLoginErr] = useState("");
+  const [registerErr, setRegisterErr] = useState("");
+  const [registerSucces, setRegisterSucces] = useState("");
 
-  // console.log(users);
+  const handleRegister = (e) => {
+    document.getElementById("home-register").classList.toggle("hidden");
+    e.target.classList.toggle("hidden");
+  }
+
+
 
   const handleLoginSubmmit = (e) => {
     e.preventDefault();
-    // for (let i = 0; i < users.length; i++){
-    //   if (users[i].login == loginValues.login && users[i].password == loginValues.password) {
-    //     console.log("zalogowano");
-    //     setLoginStatus(true);
-    //     setLoggedUser(users[i]);
-    //     setLoginErr("");
-    //     break;
-    //   } else {
-    //     setLoginErr("Zły login lub hasło");
-    //   }
-    // }
+
     for (let i = 0; i < users.length; i++){
       if (users[i].login !== loginValues.login) {
         setLoginErr("Zły login");
       } else {
         if (users[i].password !== loginValues.password) {
           setLoginErr("Złe hasło");
+          break;
         } else {
           console.log("zalogowano");
           setLoginStatus(true);
@@ -40,41 +37,66 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
       }
     }
   }
-  console.log(loginErr);
+
 
   const handleRegisterSubmmit = (e) => {
     e.preventDefault();
+    const reg = /[0-9!@#$%^&*()_*,./;;'"`]/g;
+    
 
-    fetch(`${JSON_SERWER}/users`, {
-    method: "post",
-    body: JSON.stringify(registerDate),
-    headers: {
-      "Content-Type": "application/json"
+    if(registerDate.login.length < 3){
+      setRegisterErr("Login musi mieć min. 3 znaki");
+    } else if(registerDate.password.length < 3){
+      setRegisterErr("Hasło musi mieć min. 3 znaki");
+    } else if(registerDate.age < 0){
+      setRegisterErr("Wiek musi być liczbą dodatnią");
+    } else if(registerDate.height < 0){
+      setRegisterErr("Wzrost musi być liczbą dodatnią");
+    } else if(registerDate.weight < 0){
+      setRegisterErr("Waga musi być liczbą dodatnią");
+    } else if(registerDate.localisation.length < 2 || registerDate.localisation.match(reg) != null){
+      setRegisterErr("Miasto musi mieć min. 2 znaki i nie zawierać liczb ani znaków specjalnych");
+    } else{
+      fetch(`${JSON_SERWER}/users`, {
+        method: "post",
+        body: JSON.stringify(registerDate),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => response.json())
+        .then(user => () => setUsers(user))
+        .catch(error => {
+          console.log(error);
+        });
+        document.getElementById("show-hide-register").classList.toggle("hidden");
+        document.getElementById("home-register").classList.toggle("hidden");
+        setRegisterErr("");
+        setRegisterSucces("Zarejestrowano");
+        window.location.reload();
     }
-  })
-    .then(response => response.json())
-    .then(user => () => setUsers(user))
-    .catch(error => {
-      console.log(error);
-    });
-    console.log(registerDate);
+
+    console.log(registerSucces);
 
   }
-
+  
     return<>
-    <div className='login-register-container'>
+    {!loginStatus ? <div className='login-register-container'>
       <div className="home-login">
         <div>
         <h1>Logowanie</h1>
         <form onSubmit={handleLoginSubmmit}>
             <input placeholder="Login" className="input-style" type="text" onChange={e => setLoginValues({...loginValues, login: e.target.value })}></input>
             <input  placeholder="Hasło" className="input-style" type="password" onChange={e => setLoginValues({...loginValues, password: e.target.value })}></input>
+            <h6>{loginErr}</h6>
           <button className="btn" type="submit">Zaloguj</button>
         </form>
         </div>
       </div>
+      <h3 className="register-succes">{registerSucces}</h3>
+      <button onClick={handleRegister} className="btn" id="show-hide-register">Zarejestruj</button>
 
-      <div className="home-register">
+      <div id="home-register" className="home-register hidden">
         <div>
           <h1>Rejestracja</h1>
         </div>
@@ -131,13 +153,13 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
             
             </div>
           </section>
+          <h6>{registerErr}</h6>
           <button className="btn" type="submit">Zarejestruj</button>
           
         </form>
       </div>
 
-    </div>
-    
+    </div>: <h1> Zalogowano</h1> }
     
     </>
 }

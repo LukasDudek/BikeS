@@ -35,6 +35,10 @@
             width: 350px;
             margin: 1% 0%;
           }
+          h6{
+            font-size: 1rem;
+            color:red
+          }
       }
       button {
         margin-top: 5%;
@@ -42,6 +46,9 @@
       h2{
           margin: 3%;
       }
+  }
+  .register-succes{
+    color: green;
   }
   
   .home-register{
@@ -56,6 +63,7 @@
     form{
       display:flex;
       flex-direction: column;
+      
       .reg-container-form{
         display:flex;
         justify-content: space-around;
@@ -110,6 +118,11 @@
           margin-bottom: 1%;
           width:200px;
         }
+      }
+      h6{
+        font-size: 1rem;
+        color:red;
+        margin-bottom: 1%;
       }
     }
   }

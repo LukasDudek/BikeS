@@ -68,6 +68,10 @@ body {
   padding: 1% 15px;
 }
 
+.hidden{
+  display: none !important;
+}
+
 @import './components/home';
 @import './components/navigation';
 @import './components/weather';
