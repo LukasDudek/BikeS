@@ -17,18 +17,31 @@ import {JSON_SERWER} from './api/constatns';
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [loginStatus, setLoginStatus] = useState(false);
-  const [loggedUser, setLoggedUser] = useState();
+  const [loginStatus, setLoginStatus] = useState({
+    status: false,
+    loggedUser: {}
+  })
 
   useEffect(()=> {
-    fetch(`${JSON_SERWER}/users`)
+    fetch(`${JSON_SERWER}/db`)
         .then(data => data.json())
-        .then(data => setUsers(data))
+        .then(data => setUsers(data.users) && setLoginStatus({
+          status: data.login.status,
+          loggedUser: data.login.loggedUser
+        }))
         .catch(err => console.log(err))
   }, []);
 
+  // useEffect(()=> {
+  //   fetch(`${JSON_SERWER}/login`)
+  //       .then(data => data.json())
+  //       .then(data => setLoginStatus(data.status) && setLoggedUser(data.loggedUser))
+  //       .catch(err => console.log(err))
+  // }, [loginStatus]);
+
   console.log(users);
-  console.log(users.length);
+  console.log(loginStatus);
+
 
   return (
     <div className="App container">
@@ -37,7 +50,7 @@ function App() {
     <div></div>
     <Navigation />
       <Switch>
-        <Route exact path="/" component={ () => <Home loggedUser={loggedUser} setLoggedUser={setLoggedUser} loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} />} />
+        <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} />} />
         <Route path="/weather" component={Weather}/>
         <Route path="/addWorkouts" component={Workouts}/>
         <Route path="/planningTrenings" component={PlanningTrenings}/>

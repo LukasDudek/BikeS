@@ -15,7 +15,7 @@ const PlanningTrenings = () => {
           <input type="datetime-local"></input>
         </div>
         <div>
-          <button type="submit"><i class="fas fa-plus" style={{color: "green", fontSize:"200%", alignSelf: "flex-end"}}></i></button>
+          <button type="submit"><i className="fas fa-plus" style={{color: "green", fontSize:"200%", alignSelf: "flex-end"}}></i></button>
         </div>
       </div>
     </form>

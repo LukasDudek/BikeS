@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {JSON_SERWER} from '../../api/constatns'
+import {JSON_SERWER} from '../../api/constatns';
+import LoggedIn from '../LoggedIn';
 
-const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLoggedUser }) => {
+const Home = ({ users, setUsers, loginStatus, setLoginStatus}) => {
   const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], all_km: 0, all_time: 0})
   const [loginValues, setLoginValues] = useState({
     login: "",
@@ -10,11 +11,14 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
   const [loginErr, setLoginErr] = useState("");
   const [registerErr, setRegisterErr] = useState("");
   const [registerSucces, setRegisterSucces] = useState("");
+  
 
   const handleRegister = (e) => {
     document.getElementById("home-register").classList.toggle("hidden");
     e.target.classList.toggle("hidden");
   }
+  console.log(loginStatus.status);
+  console.log(loginStatus.loggedUser);
 
 
 
@@ -30,13 +34,34 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
           break;
         } else {
           console.log("zalogowano");
-          setLoginStatus(true);
-          setLoggedUser(users[i]);
-          setLoginErr("");
+          setLoginErr(" ");
+
+          const loginDate = {
+            status: true,
+            loggedUser: users[i]
+          }
+
+          fetch(`${JSON_SERWER}/login`, {
+            method: "PUT",
+            body: JSON.stringify(loginDate),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+            .then(response => response.json())
+            .then(user => setLoginStatus({
+              status: user.status,
+              loggedUser: user.loggedUser
+            }))
+            .catch(error => {
+              console.log(error);
+            });
+            console.log(loginStatus);
         }
       }
     }
   }
+
 
 
   const handleRegisterSubmmit = (e) => {
@@ -75,13 +100,13 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
         setRegisterSucces("Zarejestrowano");
         window.location.reload();
     }
-
     console.log(registerSucces);
-
   }
+
+
   
     return<>
-    {!loginStatus ? <div className='login-register-container'>
+    {!loginStatus.status ? <div className='login-register-container'>
       <div className="home-login">
         <div>
         <h1>Logowanie</h1>
@@ -159,7 +184,9 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, loggedUser, setLog
         </form>
       </div>
 
-    </div>: <h1> Zalogowano</h1> }
+    </div>: <>
+    <LoggedIn loginStatus={loginStatus} setLoginStatus={setLoginStatus}/>
+    </> }
     
     </>
 }
