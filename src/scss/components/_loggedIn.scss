@@ -3,4 +3,58 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .logged-in-title-profile{
+    display: flex;
+    width: 100%;
+    .logged-in-conteiner-title{
+      font-size: 5rem;
+      padding: 3%;
+      width: 100%;
+      text-align: center;
+    }
+    .profile{
+      position: absolute;
+      margin: 1%;
+      right: 3%;
+      padding: 1%;
+      text-align: center;
+      border: 1px solid blue;
+      border-radius: 20px;
+      background-color: rgb(94, 88, 88);
+      width: 250px;
+      height: auto;
+      button{
+        margin: 5% 0 5% 0;
+      }
+      h1{
+        margin: 3% 0 6% 0;
+      }
+      h2{
+        text-align: start;
+        margin-bottom: 4%;
+        margin-left: 10%;
+      }
+      
+    }
+  }
+  
+  
+  .logged-in-weather-conteiner{
+    display: flex;
+    text-align: center;
+    .logged-in-weather{
+      border: 1px solid blue;
+      border-radius: 20px;
+      background-color: rgb(94, 88, 88);
+      .logged-in-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1{
+          font-size: 6rem;
+        }
+      }
+    }
+    
+  }
 }

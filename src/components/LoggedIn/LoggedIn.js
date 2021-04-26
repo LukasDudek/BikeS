@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {JSON_SERWER} from '../../api/constatns';
+// import {API_KEY, API_URL} from "../../api/constatns";
 
-const LoggedIn = ({loginStatus, setLoginStatus}) => {
+const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => {
+  console.log(currentWeather);
 
   const handleLogOut = () => {
     const loginDate = {
@@ -30,12 +32,33 @@ const LoggedIn = ({loginStatus, setLoginStatus}) => {
 
   return<>
   <div className="logged-in-conteiner">
-    <h1>{loginStatus.loggedUser.login}</h1>
-    <h1>{loginStatus.loggedUser.localisation}</h1>
-    <h1>Przejechane kilometry: {loginStatus.loggedUser.all_km}</h1>
-    <h1>Łączny czas treningów: {loginStatus.loggedUser.all_time}</h1>
-    <h1> Witaj w aplikacja BikeS </h1> 
-    <button onClick={handleLogOut} className="btn">Wyloguj</button>
+    <div className='logged-in-title-profile'>
+      <div className="logged-in-conteiner-title">
+        <h1 > Witaj w BikeS </h1>
+      </div>
+      <div className="profile"> 
+          <h1>{loginStatus.loggedUser.login}</h1>
+          <h2><i class="fas fa-road"></i> {loginStatus.loggedUser.all_km} km</h2>
+          <h2><i class="fas fa-history"></i> {loginStatus.loggedUser.all_time} h</h2>
+          <h2><i class="fas fa-bicycle"></i> {loginStatus.loggedUser.type_of_bike}</h2>
+          <h2><i class="fas fa-male"></i><i class="fas fa-arrows-alt-v"></i> {loginStatus.loggedUser.height} cm </h2>
+          <h2><i class="fas fa-weight"></i> {loginStatus.loggedUser.weight} kg</h2>
+          <button onClick={handleLogOut} className="btn">Wyloguj</button>
+      </div>
+    </div>
+
+    <div className='logged-in-weather-conteiner'>
+      <div className="logged-in-weather">
+        <h1>{loginStatus.loggedUser.localisation}</h1>
+        <div className='logged-in-icon'>
+          {loginStatus.status ? <h1>{calCelsius(currentWeather.main.temp)}&deg;C </h1> : null}
+          <img style={{width: 200}} src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`} alt="current weather icon"></img>
+        </div>
+        <h1><i class="fas fa-street-view"></i><i class="fas fa-thermometer-half"></i>  {calCelsius(currentWeather.main.feels_like)}&deg;</h1>
+        <h1><i class="fas fa-wind"></i> {currentWeather.wind.speed}</h1>
+        {currentWeather.rain && <h1><i class="fas fa-cloud-rain"></i> {Object.values(currentWeather.rain)[0]} </h1>}
+      </div>
+    </div>
   </div>
   
 

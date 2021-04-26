@@ -128,9 +128,9 @@ const Weather = () => {
           </div>
           <div className="weather-box-content"> 
               {console.log(calCelsius(el.main.temp))}
-              <h1>odczuwalna: {calCelsius(el.main.feels_like)}&deg;</h1>
-              <h1>prędkość wiatru: {el.wind.speed}</h1>
-              {el.rain && <h1>opady: {Object.values(el.rain)[0]} </h1>}
+              <h1><i class="fas fa-street-view"></i><i class="fas fa-thermometer-half"></i> {calCelsius(el.main.feels_like)}&deg;</h1>
+              <h1><i class="fas fa-wind"></i> {el.wind.speed}</h1>
+              {el.rain && <h1><i class="fas fa-cloud-rain"></i> {Object.values(el.rain)[0]} </h1>}
               
             </div>
             <div className="bicycle-box-icon">

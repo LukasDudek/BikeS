@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import {API_KEY, API_URL} from './api/constatns';
 
 import {
   HashRouter as Router,
@@ -21,16 +22,31 @@ function App() {
     status: false,
     loggedUser: {}
   })
+  const [currentWeather, setCurrentWeather] = useState("");
+
+  
 
   useEffect(()=> {
     fetch(`${JSON_SERWER}/db`)
         .then(data => data.json())
-        .then(data => setUsers(data.users) && setLoginStatus({
+        .then(data => {
+          setUsers(data.users);
+          setLoginStatus({
           status: data.login.status,
           loggedUser: data.login.loggedUser
-        }))
+        })})
         .catch(err => console.log(err))
   }, []);
+
+  useEffect(()=> {
+    if (loginStatus.status) {
+      fetch(`${API_URL}/data/2.5/weather?q=${loginStatus.loggedUser.localisation}&appid=${API_KEY}`)
+        .then (resp => resp.json())
+        .then (data => setCurrentWeather(data))
+        .catch (err => console.warn(err))
+    }
+  }, [loginStatus])
+  console.log(currentWeather);
 
   // useEffect(()=> {
   //   fetch(`${JSON_SERWER}/login`)
@@ -38,6 +54,11 @@ function App() {
   //       .then(data => setLoginStatus(data.status) && setLoggedUser(data.loggedUser))
   //       .catch(err => console.log(err))
   // }, [loginStatus]);
+
+  const calCelsius = (temp) => {
+    let cell = Math.floor(temp - 273.15);
+    return cell;
+  }
 
   console.log(users);
   console.log(loginStatus);
@@ -50,7 +71,7 @@ function App() {
     <div></div>
     <Navigation />
       <Switch>
-        <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} />} />
+        <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} calCelsius={calCelsius} currentWeather={currentWeather}/>} />
         <Route path="/weather" component={Weather}/>
         <Route path="/addWorkouts" component={Workouts}/>
         <Route path="/planningTrenings" component={PlanningTrenings}/>
