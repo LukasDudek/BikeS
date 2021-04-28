@@ -23,6 +23,8 @@ function App() {
     loggedUser: {}
   })
   const [currentWeather, setCurrentWeather] = useState("");
+  const [workouts, setWorkouts] = useState([]);
+  const [planningWorkouts, setPlanningWorkouts] = useState([]);
 
   
 
@@ -73,7 +75,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} calCelsius={calCelsius} currentWeather={currentWeather}/>} />
         <Route path="/weather" component={Weather}/>
-        <Route path="/addWorkouts" component={Workouts}/>
+        <Route path="/addWorkouts" component={ () => <Workouts workouts={workouts} setWorkouts={setWorkouts} users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />}/>
         <Route path="/planningTrenings" component={PlanningTrenings}/>
       </Switch>
     </>

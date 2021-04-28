@@ -8,7 +8,7 @@
 
   .home-login{
     padding: 1%;
-    background-color: rgba($color: #0f1049, $alpha: 1.0);
+    background-color: $color-block;
     border-radius: 20px;
     text-align: center;
       font-size: 2.8rem;
@@ -34,6 +34,7 @@
           input{
             width: 350px;
             margin: 1% 0%;
+            // border-bottom: 2px solid $decoration-color;
           }
           h6{
             font-size: 1rem;
@@ -53,7 +54,7 @@
   
   .home-register{
     font-size: 2.8rem;
-    background-color: rgba($color: #0f1049, $alpha: 1.0);
+    background-color: $color-block;
     border-radius: 20px;
     text-align: center;
     display:flex;
@@ -117,6 +118,12 @@
         input, select, button{
           margin-bottom: 1%;
           width:200px;
+        }
+        select{
+          background-color: inherit;
+          &:focus{
+            background-color: rgb(78, 37, 64);
+          }
         }
       }
       h6{

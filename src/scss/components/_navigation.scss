@@ -4,8 +4,9 @@
   display: flex;
   justify-content: space-around;
   padding-bottom: 0.2%;
-  background-color: rgba(199, 195, 195, 0.693);
+  background-color: rgba(158, 145, 165, 0.864);
   border-radius: 20px;
+  opacity: 0.8;
   .first-half-nav{
     width: 80%;
     display: flex;
@@ -29,7 +30,15 @@
       }
       a:focus{
         text-decoration: none;
-        color: $main-text-color;
+        color: $decoration-color;
+      }
+      a:active{
+        text-decoration: none;
+        color: gold;
+      }
+      a:target{
+        text-decoration: none;
+        color: $decoration-color;
       }
       &:hover{
         animation: blur 0.3s ease;

@@ -18,9 +18,9 @@
       right: 3%;
       padding: 1%;
       text-align: center;
-      border: 1px solid blue;
+      border: 2px solid $decoration-color;
       border-radius: 20px;
-      background-color: rgb(94, 88, 88);
+      background-color: rgba(140, 132, 132, 0.392);
       width: 250px;
       height: auto;
       button{
@@ -43,9 +43,8 @@
     display: flex;
     text-align: center;
     .logged-in-weather{
-      border: 1px solid blue;
       border-radius: 20px;
-      background-color: rgb(94, 88, 88);
+      background-color: rgba(140, 132, 132, 0.392);
       .logged-in-icon{
         display: flex;
         justify-content: center;

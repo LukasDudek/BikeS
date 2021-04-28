@@ -4,7 +4,7 @@ import {API_KEY, API_URL} from '../../api/constatns'
 import LoggedIn from '../LoggedIn';
 
 const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, currentWeather}) => {
-  const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], all_km: 0, all_time: 0})
+  const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], planning_Workouts:[], all_km: 0, all_time: 0})
   const [loginValues, setLoginValues] = useState({
     login: "",
     password: ""

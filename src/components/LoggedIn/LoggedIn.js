@@ -31,6 +31,8 @@ const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => 
   }
 
   return<>
+  <h1> zalogowano</h1>
+{console.log("ok")}
   <div className="logged-in-conteiner">
     <div className='logged-in-title-profile'>
       <div className="logged-in-conteiner-title">
@@ -57,6 +59,7 @@ const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => 
         <h1><i class="fas fa-street-view"></i><i class="fas fa-thermometer-half"></i>  {calCelsius(currentWeather.main.feels_like)}&deg;</h1>
         <h1><i class="fas fa-wind"></i> {currentWeather.wind.speed}</h1>
         {currentWeather.rain && <h1><i class="fas fa-cloud-rain"></i> {Object.values(currentWeather.rain)[0]} </h1>}
+        <i className="fas fa-bicycle" style={{color: 'white', fontSize:"300%"}} ></i>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@
       "type_of_bike": "Miejski",
       "localisation": "Poznań",
       "workouts": [],
+      "planning_Workouts": [],
       "all_km": 0,
       "all_time": 0,
       "id": 1
@@ -25,6 +26,7 @@
       "type_of_bike": "Miejski",
       "localisation": "Poznań",
       "workouts": [],
+      "planning_Workouts": [],
       "all_km": 0,
       "all_time": 0,
       "id": 1
@@ -38,6 +40,7 @@
       "type_of_bike": "Górski",
       "localisation": "Świdiwn",
       "workouts": [],
+      "planning_Workouts": [],
       "all_km": 0,
       "all_time": 0,
       "id": 2
@@ -51,6 +54,7 @@
       "type_of_bike": "Miejski",
       "localisation": "Poznań",
       "workouts": [],
+      "planning_Workouts": [],
       "all_km": 0,
       "all_time": 0,
       "id": 3
@@ -74,7 +78,7 @@
     },
     {
       "id": 4,
-      "name": "Zaplanowane jazdy",
+      "name": "Zaplanowane treningi",
       "link": "/planningTrenings"
     }
   ],

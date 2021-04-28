@@ -37,11 +37,6 @@ const Weather = () => {
     {forecast5 ? 
     <div className="weather-list-container">
       <div className="prelude-weather-list" >
-        <div className="info-city">
-          <h1>Pogoda w mieście: {forecast5.city.name}</h1>
-          <h1>wschód słońca: {moment(forecast5.city.sunrise).format('hh:mm')} </h1>
-          <h1>zachód słońca: {moment(forecast5.city.sunset).format('HH:mm')}</h1>
-        </div>
         <div className="scale-bike">
           <div className="scale-bikes" >
             <i className="fas fa-bicycle" style={{color: "#451313", fontSize:"120%"}} ></i> 
@@ -63,10 +58,10 @@ const Weather = () => {
             <i className="fas fa-bicycle" style={{color: "lime", fontSize:"120%"}} ></i>
           </div>
           <div className="arrow-scale">
-            <i class="far fa-frown" style={{color: "white", fontSize:"180%", marginTop: "10px"}}></i>
-            <i class="fas fa-long-arrow-alt-right" style={{color: "white", fontSize:"280%"}}
+            <i class="far fa-frown" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
+            <i class="fas fa-long-arrow-alt-right" style={{color: "white", fontSize:"180%"}}
             ></i>
-            <i class="far fa-smile-beam" style={{color: "white", fontSize:"180%", marginTop: "10px"}}></i>
+            <i class="far fa-smile-beam" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
           </div>
         
           
@@ -77,7 +72,7 @@ const Weather = () => {
       <div className="list-of-weather">
         {forecast5.list.map((el, i) => {
         let colorb = "white"
-        console.log(calCelsius(el.main.temp))
+        // console.log(calCelsius(el.main.temp))
         switch (true) {
             case(calCelsius(el.main.temp) >= 14 && el.weather[0].main !== "Rain") :
             colorb = "lime";
@@ -141,11 +136,11 @@ const Weather = () => {
     })}
       </div>
     </div> : 
-      <div className="scale-bike-conteiner"> 
-        <div style={{width: "auto", alignSelf:'center'}}className="scale-bike">
-          <div className="scale-bikes" style={{flexDirection: "column"}} >
+      <div className="scale-bike-conteiner-m"> 
+        <div style={{width: "auto", alignSelf:'center'}}className="scale-bike-m">
+          <div className="scale-bikes-m" style={{flexDirection: "column"}} >
             <div>
-              <h1 className="skala">Skala rowerowa na podstawie pogody</h1>
+              <h1 className="skala-m">Skala rowerowa na podstawie pogody</h1>
             </div>
             <div>
               <i className="fas fa-bicycle" style={{color: "#451313", fontSize:"280%"}} ></i> 
@@ -166,11 +161,11 @@ const Weather = () => {
               <i> </i>
               <i className="fas fa-bicycle" style={{color: "lime", fontSize:"280%"}} ></i>
             </div>
-            <div className="arrow-scale">
-              <i class="far fa-frown" style={{color: "white", fontSize:"220%", marginTop: "10px"}}></i>
-              <i class="fas fa-long-arrow-alt-right" style={{color: "white", fontSize:"330%"}}
+            <div className="arrow-scale-m">
+              <i class="far fa-frown" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
+              <i class="fas fa-long-arrow-alt-right" style={{color: "lightgray", fontSize:"330%"}}
               ></i>
-              <i class="far fa-smile-beam" style={{color: "white", fontSize:"220%", marginTop: "10px"}}></i>
+              <i class="far fa-smile-beam" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
             </div>
           </div>  
         </div>
