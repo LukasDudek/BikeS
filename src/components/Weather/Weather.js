@@ -58,10 +58,10 @@ const Weather = () => {
             <i className="fas fa-bicycle" style={{color: "lime", fontSize:"120%"}} ></i>
           </div>
           <div className="arrow-scale">
-            <i class="far fa-frown" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
-            <i class="fas fa-long-arrow-alt-right" style={{color: "white", fontSize:"180%"}}
+            <i className="far fa-frown" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
+            <i className="fas fa-long-arrow-alt-right" style={{color: "white", fontSize:"180%"}}
             ></i>
-            <i class="far fa-smile-beam" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
+            <i className="far fa-smile-beam" style={{color: "white", fontSize:"120%", marginTop: "10px"}}></i>
           </div>
         
           
@@ -123,14 +123,14 @@ const Weather = () => {
           </div>
           <div className="weather-box-content"> 
               {console.log(calCelsius(el.main.temp))}
-              <h1><i class="fas fa-street-view"></i><i class="fas fa-thermometer-half"></i> {calCelsius(el.main.feels_like)}&deg;</h1>
-              <h1><i class="fas fa-wind"></i> {el.wind.speed}</h1>
-              {el.rain && <h1><i class="fas fa-cloud-rain"></i> {Object.values(el.rain)[0]} </h1>}
+              <h1><i className="fas fa-street-view"></i><i className="fas fa-thermometer-half"></i> {calCelsius(el.main.feels_like)}&deg;</h1>
+              <h1><i className="fas fa-wind"></i> {el.wind.speed}</h1>
+              {el.rain && <h1><i className="fas fa-cloud-rain"></i> {Object.values(el.rain)[0]} </h1>}
               
             </div>
             <div className="bicycle-box-icon">
               <i className="fas fa-bicycle" style={{color: colorb, fontSize:"300%"}} ></i>
-              <i onClick={() => history.push(`/planningTrenings?location=${localisation}`)} class="fas fa-plus" style={{color: "green", fontSize:"200%", alignSelf: "flex-end"}}></i>
+              <i onClick={() => history.push(`/planningTrenings?location=${localisation}`)} className="fas fa-plus" style={{color: "green", fontSize:"200%", alignSelf: "flex-end"}}></i>
             </div>
       </div>
     })}
@@ -162,10 +162,10 @@ const Weather = () => {
               <i className="fas fa-bicycle" style={{color: "lime", fontSize:"280%"}} ></i>
             </div>
             <div className="arrow-scale-m">
-              <i class="far fa-frown" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
-              <i class="fas fa-long-arrow-alt-right" style={{color: "lightgray", fontSize:"330%"}}
+              <i className="far fa-frown" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
+              <i className="fas fa-long-arrow-alt-right" style={{color: "lightgray", fontSize:"330%"}}
               ></i>
-              <i class="far fa-smile-beam" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
+              <i className="far fa-smile-beam" style={{color: "lightgray", fontSize:"220%", marginTop: "10px"}}></i>
             </div>
           </div>  
         </div>

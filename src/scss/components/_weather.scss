@@ -71,6 +71,7 @@
   justify-content: center;
   align-items: center;
   opacity: 0.1;
+  
 }
 
 .scale-bike{
@@ -80,6 +81,7 @@
   margin-left: 35%;
   margin-right: 35%;
   height: 110px;
+  
   .scale-bikes{
     display: flex;
     justify-content: center;
@@ -116,6 +118,16 @@
     justify-content: center;
     align-items: center;
     margin-top: 5%;
+    @include desktop{
+      div{
+        i{
+          font-size: 3rem !important;
+        }
+
+      }
+      
+      
+    }
     .skala-m{
       margin: 3%;
       width: 100%;

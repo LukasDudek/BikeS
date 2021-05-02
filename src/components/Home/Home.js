@@ -3,7 +3,7 @@ import {JSON_SERWER} from '../../api/constatns';
 import {API_KEY, API_URL} from '../../api/constatns'
 import LoggedIn from '../LoggedIn';
 
-const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, currentWeather}) => {
+const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, currentWeather, setCurrentWeather}) => {
   const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], planning_Workouts:[], all_km: 0, all_time: 0})
   const [loginValues, setLoginValues] = useState({
     login: "",
@@ -18,8 +18,8 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
     document.getElementById("home-register").classList.toggle("hidden");
     e.target.classList.toggle("hidden");
   }
-  console.log(loginStatus.status);
-  console.log(loginStatus.loggedUser);
+
+  console.log(loginStatus.status)
 
 
 
@@ -57,6 +57,8 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
             .catch(error => {
               console.log(error);
             });
+            
+        
             console.log(loginStatus);
         }
       }
@@ -101,7 +103,6 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
         setRegisterSucces("Zarejestrowano");
         window.location.reload();
     }
-    console.log(registerSucces);
   }
 
 

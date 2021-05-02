@@ -1,62 +1,146 @@
-.navigation{
+.navigation-cont{
+  background-color: rgba(158, 145, 165, 0.864);
   color: $main-text-color;
   text-decoration: none;
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 0.2%;
-  background-color: rgba(158, 145, 165, 0.864);
   border-radius: 20px;
   opacity: 0.8;
-  .first-half-nav{
-    width: 80%;
+  .navigation{
     display: flex;
-    .logo{
-      width: 46px;
-      height: 30px;
-      background-image: url(./130067.png);
-      background-repeat: no-repeat;
-      background-position: center; 
-      background-size: cover;
+    justify-content: space-around;
+    padding-bottom: 0.2%;
+    
+
+    .hamburger{
+      background-color: transparent;
+      border: 0;
+      color: $main-text-color;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      &:focus{
+        outline: none;
       }
-    li{
-      margin-left: 3%;
-      a:visited{
-        color: rgb(67, 69, 70);
-        text-decoration: none;
+    }
+    .first-half-nav{
+      width: 80%;
+      display: flex;
+      align-self: center;
+      li{
+        margin-left: 3%;
+        a:visited{
+          color: rgb(67, 69, 70);
+          text-decoration: none;
+        }
+        a:link{
+          text-decoration: none;
+          color: rgb(67, 69, 70);
+        }
+        a:focus{
+          text-decoration: none;
+          color: $decoration-color;
+        }
+        a:active{
+          text-decoration: none;
+          color: gold;
+        }
+        a:target{
+          text-decoration: none;
+          color: $decoration-color;
+        }
+        &:hover{
+          animation: blur 0.3s ease;
+          @keyframes blur
+            {
+            from { filter: blur(4px); }
+            to { filter: blur(0px); }
+            }
+          transition: 0.3s;
+          transform: scale(1.2);
+        }
       }
-      a:link{
-        text-decoration: none;
-        color: rgb(67, 69, 70);
-      }
-      a:focus{
-        text-decoration: none;
-        color: $decoration-color;
-      }
-      a:active{
-        text-decoration: none;
-        color: gold;
-      }
-      a:target{
-        text-decoration: none;
-        color: $decoration-color;
-      }
-      &:hover{
-        animation: blur 0.3s ease;
-        @keyframes blur
-          {
-          from { filter: blur(4px); }
-          to { filter: blur(0px); }
-          }
-        transition: 0.3s;
-        transform: scale(1.2);
+    }
+    .second-half-nav{
+      display: flex;
+      width: 20%;
+      align-items: center;
+      .clock{
+        align-content: flex-end;
       }
     }
   }
-  .second-half-nav{
-    display: flex;
-    width: 20%;
-    .clock{
-      align-content: flex-end;
+}
+
+.navigation-hamburger{
+  display: none;
+  font-size: 1.5rem;
+  li{
+    margin-left: 3%;
+    a:visited{
+      color: rgb(67, 69, 70);
+      text-decoration: none;
+    }
+    a:link{
+      text-decoration: none;
+      color: rgb(67, 69, 70);
+    }
+    a:focus{
+      text-decoration: none;
+      color: $decoration-color;
+    }
+    a:active{
+      text-decoration: none;
+      color: gold;
+    }
+    a:target{
+      text-decoration: none;
+      color: $decoration-color;
+    }
+    &:hover{
+      animation: blur 0.3s ease;
+      @keyframes blur
+        {
+        from { filter: blur(4px); }
+        to { filter: blur(0px); }
+        }
+      transition: 0.3s;
+      transform: scale(1.2);
+    }
+  }
+}
+
+@include mediumDesktop {
+  .navigation{
+    justify-content: space-between;
+    font-size: 1.5;
+
+    .first-half-nav{
+      // display: none;
+      // width: auto;
+      font-size: 1.5rem;
+    }
+    .second-half-nav{
+      // width: auto;
+      margin-right: 5%;
+      font-size: 1.5rem;
+    }
+  }
+  
+}
+
+@include notebook {
+  .navigation{
+    .hamburger{
+      display: block !important;
+    }
+
+    .first-half-nav{
+      display: none !important;
+      width: auto;
+    }
+    
+    
+    .second-half-nav{
+      width: auto;
     }
   }
 }

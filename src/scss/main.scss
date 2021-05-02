@@ -1,5 +1,6 @@
 @import './base/reset';
 @import './abstracts/variables';
+@import './abstracts/mixins';
 body {
   margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -44,10 +45,19 @@ body {
     color: $hover-light;
     outline: none;
   }
+  @include mediumDesktop{
+    font-size: 1.5rem;
+  }
+  @include mobile{
+    font-size: 1rem;
+  }
 }
 
 .btn{
   font-size: 1.5rem;
+  @include notebook{
+    font-size: 1.0rem;
+  }
     color: $main-text-color;
     align-self: center;
     padding: 2% 8%;
@@ -77,6 +87,15 @@ body {
 
 .hidden{
   display: none !important;
+}
+
+.show{
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  @include notebookMin{
+    display: none !important;
+  }
 }
 
 @import './components/home';
