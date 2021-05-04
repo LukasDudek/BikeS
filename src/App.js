@@ -17,7 +17,8 @@ import {JSON_SERWER} from './api/constatns';
 const defaultWeather = {
   main: {
     temp: ''
-  }
+  },
+  weather: []
 }
 
 // http://localhost:3005/users?login=pawel&password=AlaMaKota
@@ -28,7 +29,7 @@ function App() {
     status: false,
     loggedUser: {}
   })
-  const [currentWeather, setCurrentWeather] = useState(defaultWeather);
+  const [currentWeather, setCurrentWeather] = useState(null);
   const [workouts, setWorkouts] = useState([]);
   const [planningWorkouts, setPlanningWorkouts] = useState([]);
 
@@ -47,10 +48,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch(`${API_URL}/data/2.5/weather?q=${loginStatus.loggedUser.localisation}&appid=${API_KEY}`)
-              .then (resp => resp.json())
-              .then (data => setCurrentWeather(data))
-              .catch (err => console.warn(err))
+    if (loginStatus?.loggedUser?.localisation) {
+      fetch(`${API_URL}/data/2.5/weather?q=${loginStatus.loggedUser.localisation}&appid=${API_KEY}`)
+      .then (resp => resp.json())
+      .then (data => data.cod === "400" ? console.log("bad query") : setCurrentWeather(data))
+      .catch (err => console.warn(err))
+    }
+
   }, [loginStatus])
 
 

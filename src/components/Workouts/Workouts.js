@@ -10,10 +10,16 @@ const Workouts = ({workouts, setWorkouts, setUsers, loginStatus, setLoginStatus}
     date: ""
   })
 
+  console.log(loginStatus.status);
+
   const handleAddWorkout = (e) => {
-    !loginStatus.staus ? alert("Musisz być zalogowany") :
-    e.preventDefault();
+    if (loginStatus.status === false ) {
+      alert("Musisz być zalogowany")
+    } else {
+      e.preventDefault();
     console.log("dodano trening");
+    }
+    
     // setWorkouts(prev => [...prev, treningData]); // zle
     // setLoginStatus({...loginStatus, loggedUser.workouts.push(treningData)});
 
