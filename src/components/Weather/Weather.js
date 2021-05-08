@@ -27,12 +27,17 @@ const Weather = () => {
       return cell;
     }
     
+    const handleSaveCity = () => {
+        console.log('dokończyć');
+    }
 
     return<>
     <div className='weather'>
         <label> Wpisz lokalizacje: </label>
         <input placeholder="Wpisz miasto" className="input-style" type="text" value={localisation} onChange={handleLocalisationInput}></input>
-        <button onClick={handleClickAgree} className="btn">Zatwierdź: {localisation}</button>
+        <button onClick={handleClickAgree} className="btn">Szukaj</button>
+        {localisation?.length > 1 ? <button onClick={handleSaveCity} className="btn">Zapisz jako domyślną miejscowość: <br></br>{localisation}</button> : null}
+        
     </div>
     {forecast5 ? 
     <div className="weather-list-container">

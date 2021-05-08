@@ -36,7 +36,7 @@
         }
       ],
       "planning_Workouts": [],
-      "all_km": 3,
+      "all_km": 83,
       "all_time": 0,
       "id": 1
     }
@@ -77,7 +77,7 @@
         }
       ],
       "planning_Workouts": [],
-      "all_km": 3,
+      "all_km": 83,
       "all_time": 0,
       "id": 1
     },
@@ -92,15 +92,23 @@
       "workouts": [
         {
           "id": 0,
-          "km": "5",
-          "h": "0",
-          "minutes": "30",
-          "localisation": "Płoty",
-          "date": "2021-05-08T09:15"
+          "km": "22",
+          "h": "1",
+          "minutes": "50",
+          "localisation": "Opole",
+          "date": "2021-05-08T15:03"
+        },
+        {
+          "id": 1,
+          "km": "10",
+          "h": 0,
+          "minutes": "50",
+          "localisation": "Świdwin",
+          "date": "2021-05-08T15:04"
         }
       ],
       "planning_Workouts": [],
-      "all_km": 0,
+      "all_km": 22,
       "all_time": 0,
       "id": 2
     },
@@ -117,6 +125,29 @@
       "all_km": 0,
       "all_time": 0,
       "id": 3
+    },
+    {
+      "login": "test",
+      "password": "123",
+      "age": "15",
+      "height": "167",
+      "weight": "66",
+      "type_of_bike": "Składak",
+      "localisation": "Hel",
+      "workouts": [
+        {
+          "id": 0,
+          "km": "22",
+          "h": "2",
+          "minutes": "10",
+          "localisation": "Hel",
+          "date": "2021-05-08T15:10"
+        }
+      ],
+      "planning_Workouts": [],
+      "all_km": 0,
+      "all_time": 0,
+      "id": 4
     }
   ],
   "menu": [

@@ -137,6 +137,10 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
         });
 
   }
+  
+    const timeInMin = (allTimeH*60 + allTimeM);
+    const resultsCal = loginStatus.loggedUser.weight*timeInMin*(0.6345*15*15+0.7563*15+36.725)/3600;
+    
 
     return<>
     
@@ -170,7 +174,7 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
           <h1>Wszystkie kilometry: <span>{allKM}</span></h1>
         </div>
         <div className="all-kcl inf-all-workouts">
-          <h1>Wszystkie spalone kalorie: </h1>
+          <h1>Wszystkie spalone kalorie: {Math.round(resultsCal)} kcl</h1>
         </div>
         <div className="all-workouts-time inf-all-workouts">
           <h1> Łączny czas treningów: <span>{allTimeH} h {allTimeM} m</span> </h1>
