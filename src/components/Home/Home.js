@@ -19,7 +19,6 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
     e.target.classList.toggle("hidden");
   }
 
- 
 
 
 

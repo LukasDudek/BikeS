@@ -17,10 +17,26 @@
           "minutes": "1",
           "localisation": "Poznań",
           "date": "2021-05-08T13:54"
+        },
+        {
+          "id": 4,
+          "km": "2",
+          "h": "1",
+          "minutes": "10",
+          "localisation": "Mazuchówka",
+          "date": "2021-05-08T14:52"
+        },
+        {
+          "id": 2,
+          "km": "80",
+          "h": "3",
+          "minutes": "15",
+          "localisation": "Poznań",
+          "date": "2021-05-08T15:00"
         }
       ],
       "planning_Workouts": [],
-      "all_km": 1,
+      "all_km": 3,
       "all_time": 0,
       "id": 1
     }
@@ -42,10 +58,26 @@
           "minutes": "1",
           "localisation": "Poznań",
           "date": "2021-05-08T13:54"
+        },
+        {
+          "id": 4,
+          "km": "2",
+          "h": "1",
+          "minutes": "10",
+          "localisation": "Mazuchówka",
+          "date": "2021-05-08T14:52"
+        },
+        {
+          "id": 2,
+          "km": "80",
+          "h": "3",
+          "minutes": "15",
+          "localisation": "Poznań",
+          "date": "2021-05-08T15:00"
         }
       ],
       "planning_Workouts": [],
-      "all_km": 1,
+      "all_km": 3,
       "all_time": 0,
       "id": 1
     },

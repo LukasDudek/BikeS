@@ -20,7 +20,7 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
     if (loginStatus.status === false ) {
       alert("Musisz być zalogowany")
     } else {
-      // e.preventDefault();
+      e.preventDefault();
     console.log("dodano trening");
   
     const newWorkout = [...loginStatus.loggedUser.workouts]
@@ -38,13 +38,11 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
     })
       .then(response => response.json())
       .then(userWithNewWorkout => {
-        setUsers(prevState => prevState.filter(users => users.id !== loginStatus.loggedUser.id));
-        console.log(users);
+        const userscopy = [...users];
+        const newArrUsers = userscopy.filter(users => users.id !== loginStatus.loggedUser.id);
+        newArrUsers.push(userWithNewWorkout);
 
-        setUsers((prevState) => ({
-          ...prevState, userWithNewWorkout
-        }))
-
+        setUsers(newArrUsers)
       })
       .catch(error => {
         console.log(error);
@@ -82,7 +80,7 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
 }
 
   const handleDeleteWorkout = (e, id) =>{
-    e.preventDefault();
+    // e.preventDefault();
     const deleteWorkout = [...loginStatus.loggedUser.workouts]
     // const deletedWorkout = deleteWorkout.filter( deleteWorkout => deleteWorkout.id !== );
     const deletedWorkout = deleteWorkout.filter(el => el.id !== id);
@@ -104,6 +102,12 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
         setUsers((prevState) => ({
           ...prevState, userWithDeletedWorkout
         }));
+
+        const userscopySec = [...users];
+        const newArrUsersDel = userscopySec.filter(users => users.id !== loginStatus.loggedUser.id);
+        newArrUsersDel.push(userWithDeletedWorkout);
+
+        setUsers(newArrUsersDel);
 
       })
       .catch(error => {
