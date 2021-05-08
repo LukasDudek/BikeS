@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {JSON_SERWER} from '../../api/constatns';
-import {API_KEY, API_URL} from '../../api/constatns'
+// import {API_KEY, API_URL} from '../../api/constatns'
 import LoggedIn from '../LoggedIn';
 
-const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, currentWeather, setCurrentWeather}) => {
+const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, currentWeather, setCurrentWeather, allKM, allTimeH, allTimeM}) => {
   const [registerDate, setRegisterDate] = useState({login:"", password:"", age: 0, height: 0, weight: 0, type_of_bike:"", localisation:"",workouts:[], planning_Workouts:[], all_km: 0, all_time: 0})
   const [loginValues, setLoginValues] = useState({
     login: "",
@@ -19,7 +19,7 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
     e.target.classList.toggle("hidden");
   }
 
-  console.log(loginStatus.status)
+ 
 
 
 
@@ -187,7 +187,7 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
       </div>
 
     </div>: <>
-    <LoggedIn loginStatus={loginStatus} setLoginStatus={setLoginStatus} calCelsius={calCelsius} currentWeather={currentWeather}/>
+    <LoggedIn loginStatus={loginStatus} setLoginStatus={setLoginStatus} calCelsius={calCelsius} currentWeather={currentWeather} allKM={allKM} allTimeH={allTimeH} allTimeM={allTimeM}/>
     </> }
     
     </>

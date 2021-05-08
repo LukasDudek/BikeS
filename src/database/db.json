@@ -9,9 +9,18 @@
       "weight": "74",
       "type_of_bike": "Miejski",
       "localisation": "Poznań",
-      "workouts": [],
+      "workouts": [
+        {
+          "id": 0,
+          "km": "1",
+          "h": "1",
+          "minutes": "1",
+          "localisation": "Poznań",
+          "date": "2021-05-08T13:54"
+        }
+      ],
       "planning_Workouts": [],
-      "all_km": 0,
+      "all_km": 1,
       "all_time": 0,
       "id": 1
     }
@@ -25,9 +34,18 @@
       "weight": "74",
       "type_of_bike": "Miejski",
       "localisation": "Poznań",
-      "workouts": [],
+      "workouts": [
+        {
+          "id": 0,
+          "km": "1",
+          "h": "1",
+          "minutes": "1",
+          "localisation": "Poznań",
+          "date": "2021-05-08T13:54"
+        }
+      ],
       "planning_Workouts": [],
-      "all_km": 0,
+      "all_km": 1,
       "all_time": 0,
       "id": 1
     },
@@ -39,7 +57,16 @@
       "weight": "75",
       "type_of_bike": "Górski",
       "localisation": "Opole",
-      "workouts": [],
+      "workouts": [
+        {
+          "id": 0,
+          "km": "5",
+          "h": "0",
+          "minutes": "30",
+          "localisation": "Płoty",
+          "date": "2021-05-08T09:15"
+        }
+      ],
       "planning_Workouts": [],
       "all_km": 0,
       "all_time": 0,

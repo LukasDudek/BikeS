@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {API_KEY, API_URL} from "../../api/constatns";
-import moment from 'moment'
+// import moment from 'moment'
 import { useHistory } from 'react-router-dom'
 
 // const WEATHER_URL = "http://localhost:3001/weather"

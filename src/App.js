@@ -14,12 +14,12 @@ import Workouts from './components/Workouts/Workouts';
 import PlanningTrenings from './components/PlanningTrenings'
 import {JSON_SERWER} from './api/constatns';
 
-const defaultWeather = {
-  main: {
-    temp: ''
-  },
-  weather: []
-}
+// const defaultWeather = {
+//   main: {
+//     temp: ''
+//   },
+//   weather: []
+// }
 
 // http://localhost:3005/users?login=pawel&password=AlaMaKota
 
@@ -30,10 +30,11 @@ function App() {
     loggedUser: {}
   })
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [workouts, setWorkouts] = useState([]);
-  const [planningWorkouts, setPlanningWorkouts] = useState([]);
+  const [allKM, setAllKM] = useState(0);
+  const [allTimeH, setAllTimeH] = useState(0);
+  const [allTimeM, setAllTimeM] = useState(0);
 
-  
+
 
   useEffect(()=> {
     fetch(`${JSON_SERWER}/db`)
@@ -45,6 +46,9 @@ function App() {
           loggedUser: data.login.loggedUser
         })})
         .catch(err => console.log(err))
+        // return () => {
+
+        // }
   }, []);
 
   useEffect(() => {
@@ -56,6 +60,37 @@ function App() {
     }
 
   }, [loginStatus])
+
+
+  useEffect(()=> {
+    if (loginStatus?.status === false ) {
+      setAllKM(0);
+      setAllTimeH(0);
+      setAllTimeM(0);
+    } else {
+        let sumaTimeH = 0;
+        let sumaTimeM = 0;
+        let sumaKM = 0;
+      for (let i = 0; i < loginStatus.loggedUser.workouts.length; i++) {
+        sumaKM = +sumaKM + +loginStatus.loggedUser.workouts[i].km;
+        sumaTimeH = +sumaTimeH + +loginStatus.loggedUser.workouts[i].h
+        sumaTimeM = +sumaTimeM + +loginStatus.loggedUser.workouts[i].minutes
+        if (sumaTimeM >= 60) {
+          sumaTimeH = +sumaTimeH + (parseInt(+sumaTimeM/60))
+          sumaTimeM = +sumaTimeM%60
+          
+        }
+        } 
+        return (
+        setAllKM(sumaKM),
+        setAllTimeH(sumaTimeH),
+        setAllTimeM(sumaTimeM)
+        )
+    }
+
+  }, [loginStatus])
+  
+  
 
 
   
@@ -73,9 +108,9 @@ function App() {
     <div></div>
     <Navigation />
       <Switch>
-        <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} calCelsius={calCelsius} currentWeather={currentWeather} setCurrentWeather={setCurrentWeather} />} />
+        <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} calCelsius={calCelsius} currentWeather={currentWeather} setCurrentWeather={setCurrentWeather} allKM={allKM} allTimeH={allTimeH} allTimeM={allTimeM} />} />
         <Route path="/weather" component={Weather}/>
-        <Route path="/addWorkouts" component={ () => <Workouts workouts={workouts} setWorkouts={setWorkouts} users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />}/>
+        <Route path="/addWorkouts" component={ () => <Workouts users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} allKM={allKM} allTimeH={allTimeH} allTimeM={allTimeM} />}/>
         <Route path="/planningTrenings" component={PlanningTrenings}/>
       </Switch>
     </>

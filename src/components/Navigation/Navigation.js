@@ -7,7 +7,6 @@ const MENU_URL = "http://localhost:3001/menu"
 
 const Navigation = () => {
     const [menuItems, SetMenuItems] = useState(false);
-    const hamburger = document.getElementById('hamburger');
     const navHam = document.getElementById('navHam');
 
     const hamburgerMenu = (e) =>{

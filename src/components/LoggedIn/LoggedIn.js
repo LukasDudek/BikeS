@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
 import {JSON_SERWER} from '../../api/constatns';
 // import {API_KEY, API_URL} from "../../api/constatns";
 
-const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => {
-  console.log(currentWeather);
+const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather, allKM, allTimeH, allTimeM}) => {
+  
 
   const handleLogOut = () => {
     const loginDate = {
@@ -31,7 +31,7 @@ const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => 
       console.log(currentWeather.weather[0])
   }
   let colora = "white"
-  
+
   if (currentWeather !== null) {
     
         switch (true) {
@@ -79,8 +79,8 @@ const LoggedIn = ({loginStatus, setLoginStatus, calCelsius, currentWeather}) => 
       </div>
       <div className="profile"> 
           <h1>{loginStatus.loggedUser.login}</h1>
-          <h2><i className="fas fa-road"></i> {loginStatus.loggedUser.all_km} km</h2>
-          <h2><i className="fas fa-history"></i> {loginStatus.loggedUser.all_time} h</h2>
+          <h2><i className="fas fa-road"></i> {allKM} km</h2>
+          <h2><i className="fas fa-history"></i> {allTimeH} h {allTimeM} m</h2>
           <h2><i className="fas fa-bicycle"></i> {loginStatus.loggedUser.type_of_bike}</h2>
           <h2><i className="fas fa-male"></i><i className="fas fa-arrows-alt-v"></i> {loginStatus.loggedUser.height} cm </h2>
           <h2><i className="fas fa-weight"></i> {loginStatus.loggedUser.weight} kg</h2>
