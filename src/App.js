@@ -109,9 +109,9 @@ function App() {
     <Navigation />
       <Switch>
         <Route exact path="/" component={ () => <Home loginStatus={loginStatus} setLoginStatus={setLoginStatus} users={users} setUsers={setUsers} calCelsius={calCelsius} currentWeather={currentWeather} setCurrentWeather={setCurrentWeather} allKM={allKM} allTimeH={allTimeH} allTimeM={allTimeM} />} />
-        <Route path="/weather" component={Weather}/>
+        <Route path="/weather" component={() => <Weather users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />}/>
         <Route path="/addWorkouts" component={ () => <Workouts users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} allKM={allKM} allTimeH={allTimeH} allTimeM={allTimeM} />}/>
-        <Route path="/planningTrenings" component={PlanningTrenings}/>
+        <Route path="/planningTrenings" component={() =>  <PlanningTrenings users={users} setUsers={setUsers} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />}/>
       </Switch>
     </>
   </Router>

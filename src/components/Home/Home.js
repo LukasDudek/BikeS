@@ -162,7 +162,7 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
                   <option>Trekking</option>
                   <option>Cross</option>
                   <option>Fitness</option>
-                  <option>Elektryczny/E-bike</option>
+                  <option>E-bike</option>
                   <option>Fatbike</option>
                   <option>BMX</option>
                   <option>Street.Trial</option>
@@ -172,7 +172,7 @@ const Home = ({ users, setUsers, loginStatus, setLoginStatus, calCelsius, curren
                   <option>Beach cruiser</option>
                   <option>Cargo</option>
                   <option>Rower poziomy</option>
-                  <option>Ostre koło/Wolne koło</option>
+                  <option>Ostre koło</option>
                 </select>
                 <label htmlFor="localisationRegister">lokalizacja </label>
                 <input id="localisationRegister" placeholder="miasto" className="input-style" type="text" onChange={e => setRegisterDate({...registerDate, localisation: e.target.value })}></input>

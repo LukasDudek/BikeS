@@ -80,9 +80,9 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
 }
 
   const handleDeleteWorkout = (e, id) =>{
-    // e.preventDefault();
+
     const deleteWorkout = [...loginStatus.loggedUser.workouts]
-    // const deletedWorkout = deleteWorkout.filter( deleteWorkout => deleteWorkout.id !== );
+
     const deletedWorkout = deleteWorkout.filter(el => el.id !== id);
 
     fetch(`${JSON_SERWER}/users/${loginStatus.loggedUser.id}`, {
@@ -171,7 +171,7 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
       </form>
       <div className="general-info-workouts">
         <div className="all-kilometers inf-all-workouts">
-          <h1>Wszystkie kilometry: <span>{allKM}</span></h1>
+          <h1>Wszystkie kilometry: <span>{allKM} km</span></h1>
         </div>
         <div className="all-kcl inf-all-workouts">
           <h1>Wszystkie spalone kalorie: {Math.round(resultsCal)} kcl</h1>
@@ -186,7 +186,9 @@ const Workouts = ({users, setUsers, loginStatus, setLoginStatus, allKM, allTimeH
         return<div className="cont-trening" key={i}>
           <div className='date-details'>
           <h1>{i + 1}</h1>
-          <h1>{el.date}</h1>
+          <h1>{el.date.slice(0,10)}</h1>
+          <h1>{el.date.slice(11,16)}</h1>
+          
           </div>
 
           <div className='cont-details'>

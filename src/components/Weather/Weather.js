@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {API_KEY, API_URL} from "../../api/constatns";
-// import moment from 'moment'
+import {API_KEY, API_URL, JSON_SERWER} from "../../api/constatns";
 import { useHistory } from 'react-router-dom'
 
-// const WEATHER_URL = "http://localhost:3001/weather"
 
-const Weather = () => {
+const Weather = ({loginStatus, setLoginStatus, users, setUsers}) => {
   const history = useHistory()
   const [localisation, setLocalisation] = useState();
   const [forecast5, setForecast5] = useState(false);
@@ -16,7 +14,7 @@ const Weather = () => {
         .then (data => setForecast5(data))
         .catch (err => console.warn(err))
     }
-    // console.log(forecast5.city.name);
+
 
     const handleLocalisationInput = (e) => {
         setLocalisation(e.target.value)
@@ -27,8 +25,56 @@ const Weather = () => {
       return cell;
     }
     
-    const handleSaveCity = () => {
-        console.log('dokończyć');
+    const handleSaveCity = (e) => {
+      if (loginStatus.status === false ) {
+        alert("Musisz być zalogowany")
+      } else {
+
+        e.preventDefault();
+
+        fetch(`${JSON_SERWER}/users/${loginStatus.loggedUser.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            localisation: localisation,
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => response.json())
+        .then(userWithNewLocalisation => {
+          const userscopyL = [...users];
+          const newArrUsersL = userscopyL.filter(users => users.id !== loginStatus.loggedUser.id);
+          newArrUsersL.push(userWithNewLocalisation);
+          setUsers(newArrUsersL);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+
+        const loginDatewithLocalisation = {
+          ...loginStatus, loggedUser:{
+            ...loginStatus.loggedUser,
+            localisation: localisation
+          }
+        }
+        
+        fetch(`${JSON_SERWER}/login`, {
+          method: "PUT",
+          body: JSON.stringify(loginDatewithLocalisation),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(response => response.json())
+          .then(updateLoginWithLocalisation => setLoginStatus({
+            status: updateLoginWithLocalisation.status,
+            loggedUser: updateLoginWithLocalisation.loggedUser
+          }))
+          .catch(error => {
+            console.log(error);
+          });
+      }
     }
 
     return<>
