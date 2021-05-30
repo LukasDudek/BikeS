@@ -1,3 +1,9 @@
+
+
+# BikeS application created to improve skills in JavaScript, React, Sass.
+# The app is used to check the weather, plan and add cycling workouts, and collect training and user data
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
