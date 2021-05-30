@@ -18,10 +18,26 @@
     justify-content: space-around;
     width: 500px;
     height: 200px;
+    @include notebook {
+      font-size: 1.5rem;
+      width: 400px;
+      height: 170px;
+    }
+    @include mobileL {
+      font-size: 1.2rem;
+      width: 300px;
+      height: 120px;
+    }
+    @include mobileM {
+      font-size: 0.7rem;
+      width: 180px;
+      height: 80px;
+    }
     .date-details-plan{
       display: flex;
       justify-content: space-around;
       margin-top: 4%;
+      
     }
     .cont-details-plan{
       display: flex;
@@ -39,12 +55,20 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
+        
         button{
           margin-top: 40px;
           background-color: transparent;
           border: none;
+          @include notebook{
+            margin-top: 20px;
+          }
           i{
             font-size: 2rem;
+            @include mobileL {
+              font-size: 1rem;
+            }
           }
         }
       }

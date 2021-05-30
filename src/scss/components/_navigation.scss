@@ -20,6 +20,14 @@
       &:focus{
         outline: none;
       }
+      @include mobileL {
+        margin-right: 10%;
+      }
+      @include mobileM {
+        i{
+          font-size: 0.9rem;
+        }
+      }
     }
     .first-half-nav{
       width: 80%;
@@ -63,6 +71,13 @@
       display: flex;
       width: 20%;
       align-items: center;
+      @include mobileL {
+        margin-right: 35%;
+      }
+      @include mobileM {
+        font-size: 0.9rem;
+        margin-right: 25%;
+      }
       .clock{
         align-content: flex-end;
       }
@@ -73,6 +88,12 @@
 .navigation-hamburger{
   display: none;
   font-size: 1.5rem;
+  @include notebook {
+    font-size: 1.2rem;
+}
+  @include mobileM {
+      font-size: 0.9rem;
+  }
   li{
     margin-left: 3%;
     a:visited{

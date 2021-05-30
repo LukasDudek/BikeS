@@ -4,11 +4,29 @@
   align-items: center;
   width: 100%;
   padding: 0 5%;
+  @include notebook{
+    padding: 1%;
+  }
+  @include mobile {
+    flex-wrap: wrap;
+    margin-top: 4%;
+  }
   .general-info-workouts{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 200px;
+    @include notebook{
+      margin-top: 5%;
+    }
+    @include mobileL{
+      height: 120px;
+      margin: 20px;
+    }
+    @include mobileM{
+      height: 110px;
+      margin: 15px;
+    }
     .inf-all-workouts{
       display: flex;
         flex-direction: column;
@@ -20,6 +38,21 @@
         height: 50px;
         padding: 2%;
         margin-top: 2%;
+        @include notebook{
+          font-size: 1.2rem;
+          width:330px
+        }
+        @include mobileL{
+          font-size: 0.7rem;
+          width: 270px;
+          height: 30px;
+        }
+        @include mobileM{
+          font-size: 0.7rem;
+          width: 200px;
+          height: 20px;
+          border-radius: 70px 180% 180% 70px;
+        }
     }
     .all-kilometers{
       margin-top: 2%;
@@ -40,14 +73,40 @@
   align-items: center;
   background-color: $color-block;
   border-radius: 20px;
-  width: 500px;
+  width: 480px;
   height: auto;
   padding: 1%;
   margin-top: 2%;
+  font-size: 1.9rem;
+  @include notebook{
+    width: 320px;
+    font-size: 1.4rem;
+  }
+  @include mobileL{
+    width: 290px;
+    font-size: 1rem;
+  }
+  @include mobileM{
+    width: 200px;
+    font-size: 0.7rem;
+    margin-top: 5%;
+  }
   button{
-    padding: 15%;
+    padding: 7%;
     font-size: 2.5rem;
     border-radius: 25px;
+    @include notebook{
+      padding: 3%;
+      font-size: 2rem;
+    }
+    @include mobileL{
+      padding: 15%;
+      font-size: 1.3rem;
+    }
+    @include mobileM{
+      padding: 15%;
+      font-size: 1rem;
+    }
   }
   .add-workouts-string{
     margin: 5% 0% 15% 0%;
@@ -61,6 +120,8 @@
     .inputs-add-workouts{
       display: flex;
       flex-direction: column;
+      width: 80%;
+      margin-bottom: 5%;
       label{
         margin-top: 4%;
       }
@@ -70,6 +131,16 @@
         height: 30px;
         border-radius: 10px;
         margin-top: 2%;
+        @include mobileL{
+          width: 80%;
+          height: 25px;
+          font-size: 0.6rem;
+        }
+        @include mobileM{
+          width: 80%;
+          height: 20px;
+          font-size: 0.5rem;
+        }
       }
       .add-time-of-ride{
         display: flex;
@@ -83,6 +154,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  @include notebook {
+    margin-top: 5%;
+  }
   .cont-trening{
     text-align: center;
     background-color: $color-block;
@@ -94,6 +168,26 @@
     justify-content: space-around;
     
     width: 1000px;
+    @include notebook {
+      width: 560px;
+      font-size: 1.5rem;
+      height: 180px;
+    }
+    @include mobile {
+      width: 400px;
+      font-size: 1.1rem;
+      height: 160px;
+    }
+    @include mobileL {
+      font-size: 0.8rem;
+      height: 130px;
+      width: 340px;
+    }
+    @include mobileM {
+      font-size: 0.6rem;
+      height: 90px;
+      width: 240px;
+    }
     .date-details{
       text-align: center;
       h1:first-of-type{
@@ -111,6 +205,12 @@
       display: flex;
       justify-content: space-around;
       margin-top: 4%;
+      @include mobileL {
+        height: 45px;
+      }
+      @include mobileM {
+        height: 35px;
+      }
       .first-half-tr{
         text-align: start;
         h1{
@@ -128,12 +228,28 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        
         button{
           margin-top: 60px;
           background-color: transparent;
           border: none;
+          @include mobileL {
+            margin-top: 25px;
+          }
+          @include mobileM {
+            margin-top: 20px;
+          }
           i{
             font-size: 2rem;
+            @include mobile{
+              font-size: 1.5rem;
+            }
+            @include mobileL{
+              font-size: 1.1rem;
+            }
+            @include mobileM{
+              font-size: 0.7rem;
+            }
           }
         }
       }

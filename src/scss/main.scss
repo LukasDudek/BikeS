@@ -18,6 +18,9 @@ body {
     font-size: 2rem;
     width: 100wh;
     height: 100vh;
+    @include mobileM {
+      font-size: 1rem;
+    }
   }
   
   code {

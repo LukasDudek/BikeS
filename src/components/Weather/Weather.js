@@ -82,7 +82,8 @@ const Weather = ({loginStatus, setLoginStatus, users, setUsers}) => {
         <label> Wpisz lokalizacje: </label>
         <input placeholder="Wpisz miasto" className="input-style" type="text" value={localisation} onChange={handleLocalisationInput}></input>
         <button onClick={handleClickAgree} className="btn">Szukaj</button>
-        {localisation?.length > 1 ? <button onClick={handleSaveCity} className="btn">Zapisz jako domyślną miejscowość: <br></br>{localisation}</button> : null}
+        {localisation?.length > 1 ? <button onClick={(e) => {history.push(`/`); handleSaveCity(e);} }
+          className="btn">Zapisz jako domyślną miejscowość: <br></br>{localisation}</button> : null}
         
     </div>
     {forecast5 ? 
@@ -123,7 +124,6 @@ const Weather = ({loginStatus, setLoginStatus, users, setUsers}) => {
       <div className="list-of-weather">
         {forecast5.list.map((el, i) => {
         let colorb = "white"
-        // console.log(calCelsius(el.main.temp))
         switch (true) {
             case(calCelsius(el.main.temp) >= 14 && el.weather[0].main !== "Rain") :
             colorb = "lime";
@@ -163,7 +163,7 @@ const Weather = ({loginStatus, setLoginStatus, users, setUsers}) => {
           <h1>{el.dt_txt}</h1>
           <div className="weather-all"> 
             <div>
-              <img style={{width: 200}} src={`http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="Weather icon"></img>
+              <img className="weather-img" src={`http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="Weather icon"></img>
             </div>
             <div className="tem-div">
               <span>{calCelsius(el.main.temp)}&deg;</span>
@@ -180,7 +180,7 @@ const Weather = ({loginStatus, setLoginStatus, users, setUsers}) => {
               
             </div>
             <div className="bicycle-box-icon">
-              <i className="fas fa-bicycle" style={{color: colorb, fontSize:"300%"}} ></i>
+              <i className="fas fa-bicycle bike-w" style={{color: colorb}} ></i>
               <i onClick={() => history.push(`/planningTrenings?location=${localisation}`)} className="fas fa-plus" style={{color: "green", fontSize:"200%", alignSelf: "flex-end"}}></i>
             </div>
       </div>
